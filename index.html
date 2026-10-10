@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experiencia Gardel | Viví el tango en Montevideo</title>
+<meta name="description" content="Tour cultural vivencial en Malvín, Montevideo: rambla, museo, clase de tango y ropa de época. Historia, música y pasión.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --card: #141414;
+  --ink: #f4f4f4;
+  --mut: #888888;
+  --line: #262626;
+  --accent: #d4af37;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.7 "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 10px 0 16px;
+  color: #fff;
+}
+
+.lbl {
+  font: 600 11px "Plus Jakarta Sans", sans-serif;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+  padding: 0 6%;
+}
+
+section {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mut {
+  color: var(--mut);
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 6%;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+nav b {
+  font: 700 1.2rem "Playfair Display", serif;
+  color: #fff;
+}
+
+nav a.l {
+  color: var(--mut);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 24px;
+  transition: color 0.2s;
+}
+
+nav a.l:hover {
+  color: #fff;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn.primary {
+  background: #f4f4f4;
+  color: #0a0a0a;
+  border-color: #f4f4f4;
+}
+
+.btn.primary:hover {
+  background: #fff;
+}
+
+.btn.outline {
+  background: transparent;
+  color: #f4f4f4;
+  border-color: var(--line);
+}
+
+.btn.outline:hover {
+  border-color: #fff;
+}
+
+/* Hero Section con carlos.jpg de fondo */
+.hero {
+  position: relative;
+  padding-top: 180px;
+  padding-bottom: 140px;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('carlos.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  margin: 12px 0 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero p.k {
+  font: italic 400 1.4rem "Playfair Display", serif;
+  margin: 0 0 12px;
+  color: var(--accent);
+}
+
+.cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g2 { grid-template-columns: 1fr 1fr; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 32px;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: #444;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 8px 0 10px;
+  color: #fff;
+}
+
+.card p {
+  margin: 0;
+  color: var(--mut);
+  font-size: 14px;
+}
+
+.num {
+  font: italic 700 2rem "Playfair Display", serif;
+  color: var(--accent);
+}
+
+.img-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #111;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+.songs {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+}
+
+.songs li {
+  font: italic 500 1.2rem "Playfair Display", serif;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.songs span {
+  font-size: 0.9rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  margin-right: 16px;
+  color: var(--accent);
+}
+
+/* Precios */
+.price-card {
+  max-width: 480px;
+  margin: 40px auto 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 48px 40px;
+  text-align: center;
+  background: var(--card);
+}
+
+.amt {
+  font: 700 4rem/1 "Playfair Display", serif;
+  margin: 16px 0;
+  color: #fff;
+}
+
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+  text-align: left;
+}
+
+.price-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--mut);
+}
+
+.price-card li:before {
+  content: "— ";
+  color: var(--accent);
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--mut);
+  padding: 50px 6%;
+  background: #050505;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media(max-width: 780px) {
+  nav a.l { display: none; }
+  .g3, .g2 { grid-template-columns: 1fr; }
+  .hero { padding-top: 130px; }
+  section { padding: 60px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <b>Experiencia Gardel</b>
+  <div>
+    <a class="l" href="#recorrido">Recorrido</a>
+    <a class="l" href="#gardel">Gardel</a>
+    <a class="l" href="#reserva">Reserva</a>
+    <a class="btn primary" style="margin-left:20px; padding: 8px 18px; font-size:13px;" href="#reserva">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="lbl">Tour cultural · Malvín, Montevideo</div>
+      <h1>Experiencia Gardel</h1>
+      <p class="k">Viví el tango en Montevideo</p>
+      <p class="mut">Historia, música y pasión en un recorrido vivencial único frente al imponente Río de la Plata.</p>
+      <div class="cta">
+        <a class="btn primary" href="#reserva">Reservá tu lugar</a>
+        <a class="btn outline" href="#recorrido">Ver recorrido</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="recorrido">
+  <div class="wrap">
+    <div class="lbl">El recorrido</div>
+    <h2>Tres a cuatro horas para vivir el tango</h2>
+    <p class="mut" style="max-width:600px">Un itinerario guiado que conecta la historia dorada del tango con la tranquilidad de la rambla de Malvín.</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Pick-up en hotel</h3>
+        <p>Pasamos a buscarte por Plaza Independencia o tu hospedaje.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Rambla de Malvín</h3>
+        <p>Caminata guiada frente al río por la bahía y zonas históricas.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Museo del Turf y Tango</h3>
+        <p>Visita a un espacio cultural exclusivo de la zona.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Clase de tango</h3>
+        <p>Introducción práctica a los pasos básicos y postura.</p>
+      </div>
+      <div class="card">
+        <div class="num">05</div>
+        <h3>Vestuario de época</h3>
+        <p>Ambientación con atuendos clásicos de los años dorados.</p>
+      </div>
+      <div class="card">
+        <div class="num">06</div>
+        <h3>Fotografía de recuerdo</h3>
+        <p>Imagen profesional al finalizar la experiencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gardel">
+  <div class="wrap">
+    <div class="grid g2" style="align-items: center;">
+      <div class="img-container">
+        <img src="anto.jpeg" alt="Carlos Gardel">
+      </div>
+      <div>
+        <div class="lbl">Carlos Gardel</div>
+        <h2>La voz que llevó el tango al mundo</h2>
+        <p class="mut">Máximo exponente del género y figura fundamental de la cultura rioplatense. Su legado sigue resonando en cada rincón.</p>
+        <ul class="songs">
+          <li><span>01</span> Por una cabeza</li>
+          <li><span>02</span> Volver</li>
+          <li><span>03</span> Mi Buenos Aires querido</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserva">
+  <div class="wrap">
+    <div style="text-align:center">
+      <div class="lbl">Reserva de Tour</div>
+      <h2>Todo incluido</h2>
+      <div class="price-card">
+        <div class="lbl">Precio por persona</div>
+        <div class="amt">US$ 66</div>
+        <ul>
+          <li>Traslado durante todo el circuito</li>
+          <li>Recorrido guiado por Malvín</li>
+          <li>Entrada al museo</li>
+          <li>Clase práctica de tango</li>
+          <li>Ropa de época y fotografía</li>
+        </ul>
+        <a class="btn primary" style="width:100%; justify-content:center; margin-top: 8px;" href="mailto:experienciagardel@gmail.com?subject=Reserva%20Experiencia%20Gardel">Reservar por Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Experiencia Gardel. Montevideo, Uruguay. · <a href="https://www.instagram.com/experienciagardel.uy/" target="_blank" rel="noopener">Instagram</a></p>
+</footer>
+
+</body>
+</html>
